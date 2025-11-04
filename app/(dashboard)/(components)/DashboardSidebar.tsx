@@ -1,5 +1,7 @@
 import {
     IconBrandCashapp,
+  IconBrandMessenger,
+  IconBuildingStore,
   IconCamera,
   IconChartBar,
   IconChevronRight,
@@ -11,11 +13,15 @@ import {
   IconFolder,
   IconHelp,
   IconInnerShadowTop,
+  IconList,
   IconListDetails,
+  IconLogs,
   IconReport,
+  IconReportAnalytics,
   IconReportMoney,
   IconSearch,
   IconSettings,
+  IconUser,
   IconUsers,
 } from "@tabler/icons-react";
 
@@ -53,9 +59,14 @@ const items = [
     icon: IconDashboard,
   },
   {
-    title: "Inbox",
+    title: "Messages",
     url: "#",
-    icon: IconFolder,
+    icon: IconBrandMessenger,
+  },
+  {
+    title: "Stock Reports",
+    url: "#",
+    icon: IconReportAnalytics,
   },
 ];
 
@@ -79,7 +90,7 @@ export function AppSidebar() {
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Application</SidebarGroupLabel>
+          <SidebarGroupLabel>Dashboard</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (
@@ -96,7 +107,46 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
         <SidebarGroup>
-          <SidebarGroupLabel>Staff</SidebarGroupLabel>
+          <SidebarGroupLabel>Management</SidebarGroupLabel>
+          <SidebarMenu>
+            <Collapsible
+              asChild
+              defaultOpen={true}
+              className="group/collapsible"
+            >
+              <SidebarMenuItem>
+                <CollapsibleTrigger asChild>
+                  <SidebarMenuButton tooltip="Manage Staff">
+                      <IconBuildingStore className="w-5 h-5"/>
+                      <span>Products</span>
+                    <IconChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                  </SidebarMenuButton>
+                </CollapsibleTrigger>
+                <CollapsibleContent>
+                  <SidebarMenuSub>
+                    <SidebarMenuSubItem>
+                      <SidebarMenuSubButton asChild>
+                        <a href="#">
+                          <IconList />
+                          <span>View Products</span>
+                        </a>
+                      </SidebarMenuSubButton>
+                    </SidebarMenuSubItem>
+                    <SidebarMenuSubItem>
+                      <SidebarMenuSubButton asChild>
+                        <a href="#">
+                          <IconLogs />
+                          <span>Sales and Purchase</span>
+                        </a>
+                      </SidebarMenuSubButton>
+                    </SidebarMenuSubItem>
+                    
+                  </SidebarMenuSub>
+                </CollapsibleContent>
+              </SidebarMenuItem>
+            </Collapsible>
+            
+          </SidebarMenu>
           <SidebarMenu>
             <Collapsible
               asChild
@@ -113,6 +163,14 @@ export function AppSidebar() {
                 </CollapsibleTrigger>
                 <CollapsibleContent>
                   <SidebarMenuSub>
+                    <SidebarMenuSubItem>
+                      <SidebarMenuSubButton asChild>
+                        <a href="#">
+                          <IconUser />
+                          <span>All Staff</span>
+                        </a>
+                      </SidebarMenuSubButton>
+                    </SidebarMenuSubItem>
                     <SidebarMenuSubItem>
                       <SidebarMenuSubButton asChild>
                         <a href="#">
@@ -138,6 +196,21 @@ export function AppSidebar() {
         </SidebarGroup>
         <SidebarGroup>
           <SidebarGroupLabel>Warehouses</SidebarGroupLabel>
+        </SidebarGroup>
+        <SidebarGroup>
+          <SidebarGroupLabel>Others</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+                <SidebarMenuItem >
+                  <SidebarMenuButton asChild>
+                    <a href="#">
+                      <IconSettings />
+                      <span>Settings</span>
+                    </a>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
     </Sidebar>
