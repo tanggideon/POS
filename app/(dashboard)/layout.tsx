@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
 import { AppSidebar } from "./(components)/DashboardSidebar";
-import { SidebarProvider } from "@/components/ui/sidebar";
+import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,9 +26,10 @@ export default function DashboardLayout({
 }>) {
   return (
     <SidebarProvider>
-    <div>
-      <AppSidebar />
-        {children}
-    </div></SidebarProvider>
+      <div>
+        <AppSidebar />
+        <SidebarInset>{children}</SidebarInset>
+      </div>
+    </SidebarProvider>
   );
 }

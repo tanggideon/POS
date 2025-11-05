@@ -7,6 +7,7 @@ import {
   IconChevronRight,
   IconDashboard,
   IconDatabase,
+  IconDeviceMobileDollar,
   IconFileAi,
   IconFileDescription,
   IconFileWord,
@@ -57,6 +58,11 @@ const items = [
     title: "Dashboard",
     url: "#",
     icon: IconDashboard,
+  },
+  {
+    title: "Point of Sale",
+    url: "#",
+    icon: IconDeviceMobileDollar,
   },
   {
     title: "Messages",
