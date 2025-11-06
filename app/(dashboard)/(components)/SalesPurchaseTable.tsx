@@ -336,7 +336,7 @@ function DraggableRow({ row }: { row: Row<z.infer<typeof schema>> }) {
   )
 }
 
-export function ProductTable({
+export function SalesPurchaseTable({
   data: initialData,
 }: {
   data: z.infer<typeof schema>[]
@@ -351,7 +351,7 @@ export function ProductTable({
   const [sorting, setSorting] = React.useState<SortingState>([])
   const [pagination, setPagination] = React.useState({
     pageIndex: 0,
-    pageSize: 10,
+    pageSize: 5,
   })
   const sortableId = React.useId()
   const sensors = useSensors(
