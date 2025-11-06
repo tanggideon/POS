@@ -1,4 +1,5 @@
-import { Input } from "@/components/ui/input"
+import { Input } from "@/components/ui/input";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import {
   Table,
   TableBody,
@@ -8,7 +9,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table"
+} from "@/components/ui/table";
 
 const invoices = [
   {
@@ -53,36 +54,51 @@ const invoices = [
     totalAmount: "$300.00",
     paymentMethod: "Credit Card",
   },
-]
+];
 
 export function PosTable() {
   return (
-    <Table>
-      <TableHeader>
-        <TableRow>
-          <TableHead className="w-[100px]">s/n</TableHead>
-          <TableHead>Item</TableHead>
-          <TableHead>Quantity</TableHead>
-          <TableHead className="text-right">Amount</TableHead>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-
-        {invoices.map((invoice, index) => (
-          <TableRow key={invoice.invoice}>
-            <TableCell className="font-medium">{index + 1}</TableCell>
-            <TableCell>{invoice.paymentStatus}</TableCell>
-            <TableCell><Input type="number" defaultValue={1} className="w-50" min={1}/></TableCell>
-            <TableCell className="text-right">{invoice.totalAmount}</TableCell>
+    <div className="flex-1">
+    <ScrollArea>
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHead className="w-[100px]">s/n</TableHead>
+            <TableHead>Item</TableHead>
+            <TableHead>Quantity</TableHead>
+            <TableHead className="text-right">Amount</TableHead>
           </TableRow>
-        ))}
-      </TableBody>
-      <TableFooter>
-        <TableRow>
-          <TableCell colSpan={3} className="font-bold">Total</TableCell>
-          <TableCell className="text-right font-bold text-gray-700 text-lg">$2,500.00</TableCell>
-        </TableRow>
-      </TableFooter>
-    </Table>
-  )
+        </TableHeader>
+        <TableBody>
+          {invoices.map((invoice, index) => (
+            <TableRow key={invoice.invoice}>
+              <TableCell className="font-medium">{index + 1}</TableCell>
+              <TableCell>{invoice.paymentStatus}</TableCell>
+              <TableCell>
+                <Input
+                  type="number"
+                  defaultValue={1}
+                  className="w-50"
+                  min={1}
+                />
+              </TableCell>
+              <TableCell className="text-right">
+                {invoice.totalAmount}
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+        <TableFooter>
+          <TableRow>
+            <TableCell colSpan={3} className="font-bold">
+              Total
+            </TableCell>
+            <TableCell className="text-right font-bold text-gray-700 text-lg">
+              $2,500.00
+            </TableCell>
+          </TableRow>
+        </TableFooter>
+      </Table>
+    </ScrollArea></div>
+  );
 }

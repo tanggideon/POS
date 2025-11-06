@@ -45,40 +45,35 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import Link from "next/link";
 
 // Menu items.
 const items = [
   {
     title: "Dashboard",
-    url: "#",
+    url: "/dashboard",
     icon: IconDashboard,
   },
   {
     title: "Point of Sale",
-    url: "#",
+    url: "/dashboard/pos",
     icon: IconDeviceMobileDollar,
   },
   {
     title: "Messages",
-    url: "#",
+    url: "/dashboard/messages",
     icon: IconBrandMessenger,
   },
   {
     title: "Stock Reports",
-    url: "#",
+    url: "/dashboard/reports",
     icon: IconReportAnalytics,
   },
 ];
 
 export function AppSidebar() {
   return (
-    <Sidebar>
+    <Sidebar collapsible="none" className="bg-gray-100">
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
@@ -102,10 +97,10 @@ export function AppSidebar() {
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
-                    <a href={item.url}>
+                    <Link href={item.url}>
                       <item.icon />
                       <span>{item.title}</span>
-                    </a>
+                    </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
@@ -117,7 +112,7 @@ export function AppSidebar() {
           <SidebarMenu>
             <Collapsible
               asChild
-              defaultOpen={true}
+              defaultOpen={false}
               className="group/collapsible"
             >
               <SidebarMenuItem>
@@ -132,18 +127,18 @@ export function AppSidebar() {
                   <SidebarMenuSub>
                     <SidebarMenuSubItem>
                       <SidebarMenuSubButton asChild>
-                        <a href="#">
+                        <Link href="/dashboard/products">
                           <IconList />
                           <span>View Products</span>
-                        </a>
+                        </Link>
                       </SidebarMenuSubButton>
                     </SidebarMenuSubItem>
                     <SidebarMenuSubItem>
                       <SidebarMenuSubButton asChild>
-                        <a href="#">
+                        <Link href="/dashboard/purchases">
                           <IconLogs />
                           <span>Sales and Purchase</span>
-                        </a>
+                        </Link>
                       </SidebarMenuSubButton>
                     </SidebarMenuSubItem>
                     
@@ -156,7 +151,7 @@ export function AppSidebar() {
           <SidebarMenu>
             <Collapsible
               asChild
-              defaultOpen={true}
+              defaultOpen={false}
               className="group/collapsible"
             >
               <SidebarMenuItem>
@@ -171,7 +166,7 @@ export function AppSidebar() {
                   <SidebarMenuSub>
                     <SidebarMenuSubItem>
                       <SidebarMenuSubButton asChild>
-                        <a href="#">
+                        <a href="/dashboard/staff">
                           <IconUser />
                           <span>All Staff</span>
                         </a>
@@ -179,18 +174,18 @@ export function AppSidebar() {
                     </SidebarMenuSubItem>
                     <SidebarMenuSubItem>
                       <SidebarMenuSubButton asChild>
-                        <a href="#">
+                        <Link href="/dashboard/staff-reports">
                           <IconReportMoney />
                           <span>Reports</span>
-                        </a>
+                        </Link>
                       </SidebarMenuSubButton>
                     </SidebarMenuSubItem>
                     <SidebarMenuSubItem>
                       <SidebarMenuSubButton asChild>
-                        <a href="#">
+                        <Link href="/dashboard/staff-salaries">
                           <IconBrandCashapp />
                           <span>Salaries</span>
-                        </a>
+                        </Link>
                       </SidebarMenuSubButton>
                     </SidebarMenuSubItem>
                   </SidebarMenuSub>
