@@ -471,7 +471,7 @@ export function ProductTable({
           </DropdownMenu>
           <Button variant="outline" size="sm">
             <IconPlus />
-            <span className="hidden lg:inline">Add Section</span>
+            <span className="hidden lg:inline">Add Product</span>
           </Button>
         </div>
       </div>

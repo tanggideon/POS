@@ -166,7 +166,7 @@ export function AppSidebar() {
                   <SidebarMenuSub>
                     <SidebarMenuSubItem>
                       <SidebarMenuSubButton asChild>
-                        <a href="/dashboard/staff">
+                        <a href="/dashboard/all-staff">
                           <IconUser />
                           <span>All Staff</span>
                         </a>
